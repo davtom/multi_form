@@ -1,0 +1,144 @@
+<html>
+<head>
+  <link rel="stylesheet" href="css/form.css" type="text/css" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+    <div class="center">
+      <section>
+
+              <div>
+                <div class="heading-block highlight-me">
+                  <h2>Zaoferuj swoją nieruchomość!</h2>
+                  <span>Proszę przejść przez formularz krok po kroku.</span>
+                </div>
+                <div>
+                  <form>
+
+                      <div class="step step-1 index active">
+                        <div id="step-1">
+                          <div style="width:50%; margin:0 auto;">
+                            <label for="dom">Rodzaj obiektu <small>*</small></label>
+                            <select name="rodzaj_obiektu" id="rodzaj_obiektu" tabindex="9" class="sm-form-control required textarea" onchange="mieszkanieSelectCheck(this);">
+                              <option value="">-- Wybierz rodzaj obiektu --</option>
+                              <option value="Wolnostojący">Wolnostojący</option>
+                              <option value="Dom dwurodzinny">Dom dwurodzinny</option>
+                              <option value="Apartamentowiec">Apartamentowiec</option>
+                              <option id="opcja_mieszkanie" value="Budynek mieszkalno-usługowy">Budynek mieszkalno-usługowy</option>
+                            </select>
+                            <label id="rodzaj_obiektu-error" class="error" for="rodzaj_obiektu" style="display: inline-block;"></label>
+                          </div>
+                          <div id="mieszkanie" style="display: none; width:50%; margin:0 auto;">
+                            
+                          </div>
+                          <p></p>
+                        </div>
+
+                        <div style="margin:0 auto;">
+                          <button class="button button-3d button-large m-0 next-btn" type="button" onclick="Step1()">Następny</button>
+                        </div>
+                      </div>
+
+                      <div class="step step-2">
+                        <div id="step-2">
+                          <div style="width:50%; margin:0 auto;">
+                            <label for="rok">Rok <small>*</small></label>
+                            <input type="number" name="rok" id="rok" min="1600" max="2022" value="" size="22" tabindex="6" class="sm-form-control required textarea">
+                            <label id="rok-error" class="error" for="rok" style="display: inline-block;"></label>
+                            <p style="font-size: small; color: red;" id="blad2"></p>
+                          </div>
+                        </div>
+                        <div style="width:50%; margin:0 auto;">
+                          <button class="button button-3d button-large m-0 previous-btn" type="button">Wróć</button>
+                          <button class="button button-3d button-large m-0 next-btn" type="button" onclick="Step2()">Następny</button>
+                        </div>
+                      </div>
+
+                      <div class="step step-3">
+                        <div id="step-3">
+                          <div style="width:50%; margin:0 auto;">
+                            <label for="miasto">Miasto <small>*</small></label>
+                            <input type="text" name="miasto" id="miasto" pattern="[a-z]{3}" value="" size="22" tabindex="7" class="sm-form-control required textarea form-control ui-autocomplete-input" autocomplete="off">
+                            <label id="miasto-error" class="error" for="miasto" style="display: inline-block;"></label>
+                            <p style="font-size: small; color: red;" id="blad3"></p>
+                          </div>
+
+                          <div style="width:50%; margin:0 auto;">
+                            <label for="ulica">Ulica <small>*</small></label>
+                            <input type="text" name="ulica" id="ulica" pattern="[a-z0-9]{3}" value="" size="22" tabindex="7" class="sm-form-control required textarea form-control">
+                            <label id="ulica-error" class="error" for="ulica" style="display: inline-block;"></label>
+                            <p style="font-size: small; color: red;" id="blad4"></p>
+                          </div>
+
+                          <div style="width:50%; margin:0 auto;">
+                            <label for="nr_domu">Nr domu <small>*</small></label>
+                            <input type="number" name="nr_domu" id="nr_domu" pattern="[0-9]{1}" value="" size="22" tabindex="7" class="sm-form-control required textarea form-control">
+                            <label id="nr_domu-error" class="error" for="nr_domu" style="display: inline-block;"></label>
+                            <p style="font-size: small; color: red;" id="blad5"></p>
+                          </div>
+                        </div>
+                        <div style="width:50%; margin:0 auto;">
+                          <button class="button button-3d button-large m-0 previous-btn" type="button">Wróć</button>
+                          <button class="button button-3d button-large m-0 next-btn" type="button" onclick="Step3()">Następny</button>
+                        </div>
+                      </div>
+
+                      <div class="step step-4">
+                        <div id="step-4">
+                          <div style="width:50%; margin:0 auto;">
+                            <label for="imie">Imie <small>*</small></label>
+                            <input type="text" id="imie" name="imie" pattern="[a-z]{3}" value="" class="sm-form-control required textarea" aria-invalid="true">
+                            <label id="imie-error" class="error" for="imie" style="display: inline-block;"></label>
+                            <p style="font-size: small; color: red;" id="blad6"></p>
+                          </div>
+
+                          <div style="width:50%; margin:0 auto;">
+                            <label for="nazwisko">Nazwisko</label>
+                            <input type="text" id="nazwisko" name="nazwisko" value="" class="sm-form-control">
+                            <p></p>
+                          </div>
+
+                          <div style="width:50%; margin:0 auto;">
+                            <label for="adres">Adres</label>
+                            <input type="email" id="adres" name="adres" value="" class="sm-form-control">
+                            <p></p>
+                          </div>
+
+                          <div style="width:50%; margin:0 auto;">
+                            <label for="telefon">Telefon <small>*</small></label>
+                            <input type="number" name="telefon" id="telefon" pattern="[0-9]{9}" value="" size="22" tabindex="4" class="sm-form-control required textarea">
+                            <label id="telefon-error" class="error" for="telefon" style="display: inline-block;"></label>
+                            <p style="font-size: small; color: red;" id="blad7"></p>
+                          </div>
+
+                          <div style="width:50%; margin:0 auto;">
+                            <label for="email">Email <small>*</small></label>
+                            <input type="text" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value="" size="22" tabindex="5" class="sm-form-control required textarea">
+                            <label id="email-error" class="error" for="email" style="display: inline-block;"></label>
+                            <p style="font-size: small; color: red;" id="blad8"></p>
+                          </div>
+                        </div>
+
+                        <div class="w-100"></div>
+
+                        <div class="w-100"></div>
+
+                        <div style="margin:0 auto;">
+                          <button class="button button-3d button-large m-0 previous-btn" type="button">Wróć</button>
+                          <button class="button button-3d button-large m-0 send-btn" type="button" onclick="Step4()">Wyślij</button>
+                        </div>
+
+                        <input type="hidden" name="prefix" value="template-objectform-">
+                      </div>
+
+                  </form>
+                </div>
+              </div>
+            
+      </section>
+    </div>
+
+  <script src="js/form.js"></script>
+
+</body>
+</html>
